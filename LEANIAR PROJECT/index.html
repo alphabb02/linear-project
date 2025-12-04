@@ -1,104 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
+<meta charset="UTF-8">
+<title>Linear Algebra Summary</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
-summary h2,h4 {
-    margin: 0;        
-    display: inline;	
+
+body {
+  background: linear-gradient(135deg, #93C572, #c9f7a0);
+  font-family: "Cairo", sans-serif;
+  margin: 0;
+  padding: 20px;
+  animation: fadeAll 0.7s ease;
 }
+
+@keyframes fadeAll {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+details {
+  background: #ffffffdd;
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  transition: transform 0.3s;
+}
+
+details[open] {
+  transform: scale(1.02);
+}
+
+summary {
+  cursor: pointer;
+  position: relative;
+  padding-left: 28px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+summary::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details[open] > *:not(summary) {
+  animation: slide 0.4s ease;
+}
+
+@keyframes slide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 img {
   max-width: 100%;
-  height: auto;
+  opacity: 0;
+  animation: fade 0.7s forwards;
 }
+
+@keyframes fade {
+  to { opacity: 1; }
+}
+
+h1 {
+  text-align: center;
+  background: linear-gradient(to right, #005500, #66ff66);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 15px;
+  border: none;
+  color: white;
+  background: #005500;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+  font-size: 20px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+#topBtn:hover {
+  transform: scale(1.1);
+}
+
 </style>
 </head>
-<body style="background-color:#93C572;">
-<h1 style= "text-align: center;">وما بعد  Linear combination  ملخص </h1>
 
+<body>
 
-<details>
- <summary><h2>Linear combination</h2></summary>
- <details>
- <summary><h4>Rule</h4></summary>
-
-</details>
-<details>
- <summary><h4>example</h4></summary>
-
-</details>
-<details>
- <summary><h4>notes</h4></summary>
-  
-</details>
-</details>
-<hr>
-</details>
-
-
+<h1>ملخص Linear Algebra</h1>
 
 <details>
- <summary><h2>Spans</h2></summary>
-        <img  src="images\shapes\Linear combination.png">
-  <details>
- <summary><h4>Rule</h4></summary>
-        <img  src="images\rules\span.png">
-
-</details>
-<details>
- <summary><h4>example</h4></summary>
-
-</details>
-<details>
- <summary><h4>notes</h4></summary>
- <img src="images\notes\Linear combination.png">
-</details>
-</details>
-<hr>
-</details>
-
-
-
-<details>
- <summary><h2>L.Ind & L.dep</h2></summary>
-    <img  src="images\shapes\Linear dep , indep.png">
+ <summary>Linear Combination</summary>
 
  <details>
- <summary><h4>Rule</h4></summary>
-    <img  src="images\rules\Linear dep , indep.jpeg">
+   <summary>Rule</summary>
+ </details>
 
-</details>
-<details>
- <summary><h4>example</h4></summary>
+ <details>
+   <summary>Example</summary>
+ </details>
 
-</details>
-<details>
- <summary><h4>notes</h4></summary>
-
-</details>
 </details>
 <hr>
-</details>
-
-
 
 <details>
- <summary><h2>Basis</h2></summary>
-           <details>
- <summary><h4>Rule</h4></summary>
+ <summary>Spans</summary>
+ <img src="images/shapes/Linear combination.png">
 
-</details>
-<details>
- <summary><h4>example</h4></summary>
+ <details>
+   <summary>Rule</summary>
+   <img src="images/rules/span.png">
+ </details>
 
-</details>
-<details>
- <summary><h4>notes</h4></summary>
+ <details>
+   <summary>Example</summary>
+ </details>
 
-</details>
 </details>
 <hr>
+
+<details>
+ <summary>L.Ind & L.dep</summary>
+ <img src="images/shapes/Linear dep , indep.png">
+
+ <details>
+   <summary>Rule</summary>
+   <img src="images/rules/Linear dep , indep.jpeg">
+ </details>
+
+ <details>
+   <summary>Example</summary>
+ </details>
+
+</details>
+<hr>
+
+<details>
+ <summary>Basis</summary>
+
+ <details>
+   <summary>Rule</summary>
+ </details>
+
+ <details>
+   <summary>Example</summary>
+ </details>
+
 </details>
 
+<button id="topBtn">▲</button>
+
+<script>
+let btn = document.getElementById("topBtn");
+window.onscroll = function() {
+  btn.style.display = window.scrollY > 200 ? "block" : "none";
+};
+btn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+</script>
+
+<footer style="text-align:center; margin-top:25px; color:white; font-size:18px;">
+  © 2025 – Linear Algebra Summary
+</footer>
 
 </body>
 </html>
